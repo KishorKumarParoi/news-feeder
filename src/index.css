@@ -5,11 +5,8 @@
 @layer utilities {
   @font-face {
     font-family: "Fira Sans";
-    src: url("fonts/fira/eot/FiraSans-Italic.eot");
+    src: url("./assets/fonts/Fira_Sans/FiraSans-Italic.ttf");
     src:
-      url("fonts/fira/eot/FiraSans-Italic.eot") format("embedded-opentype"),
-      url("fonts/fira/woff2/FiraSans-Italic.woff2") format("woff2"),
-      url("fonts/fira/woff/FiraSans-Italic.woff") format("woff"),
       url("fonts/fira/woff2/FiraSans-Italic.ttf") format("truetype");
     font-weight: normal;
     font-style: italic;
@@ -18,14 +15,14 @@
   /* TT Commons */
   @font-face {
     font-family: "TT Commons";
-    src: url("/assets/fonts/tt-commons/TTCommonsRegular.otf");
+    src: url("./assets/fonts/tt-commons/TTCommonsRegular.otf");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "TT Commons";
-    src: url("/assets/fonts/tt-commons/TTCommonsSemiBold.otf");
+    src: url("./assets/fonts/tt-commons/TTCommonsSemiBold.otf");
     font-weight: 600;
     font-style: normal;
   }
@@ -33,7 +30,7 @@
   /* Publico Headline Web */
   @font-face {
     font-family: "Publico Headline Web";
-    src: url("/assets/fonts/publico-headline-web/Publico-Headline-Web-Bold.ttf");
+    src: url("./assets/fonts/publico-headline-web/Publico-Headline-Web-Bold.ttf");
     font-weight: 700;
     font-style: normal;
   }
