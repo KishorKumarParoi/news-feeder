@@ -26,7 +26,6 @@ const useNewsQuery = () => {
             // http://localhost:8000/v2/search?q=health
 
             const response = await fetch(`http://localhost:8000/v2/${typeOfNews}?${queryType}=${queryAbout}`);
-            console.log(response);
 
             if (!response.ok) {
                 const errorMessage = `Fetching Weather Data Failed: ${response.status}`;
@@ -59,7 +58,7 @@ const useNewsQuery = () => {
             state: true,
             message: "Getting your News Data...",
         });
-        featchNewsData("top-headlines", "category", "health");
+        featchNewsData("top-headlines", "category", "general");
     }, []);
 
     return {

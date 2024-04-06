@@ -1,44 +1,46 @@
-import thumb from "../../assets/thumb.png"
-import thumbLg from "../../assets/thumb_lg.png"
+import { useContext } from "react";
+import thumb from "../../assets/thumb.png";
+// import thumbLg from "../../assets/thumb_lg.png";
+import { NewsContext } from "../../contexts";
 
 export default function LeftNewsPart() {
+    const { newsData } = useContext(NewsContext);
+    const { articles } = { ...newsData };
+    console.log(articles);
+    // const Data = articles.map(article => article.title ?? "Kishor");
+    // console.log(Data);
+
     return (
         <>
             <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8">
-                {/* <!-- news item --> */}
-                <div className="col-span-12 grid grid-cols-12 gap-4">
-                    {/* <!-- info --> */}
-                    <div className="col-span-12 lg:col-span-4">
-                        <a href="#">
-                            <h3 className="mb-2.5 text-2xl font-bold lg:text-[28px]">
-                                Cities have stopped being the engines of
-                                growth and opportunity they once were
-                            </h3>
-                        </a>
-                        <p className="text-base text-[#5C5955]">
-                            The pandemic is dealing prodigious blows to
-                            cities across the country. But the world can’t
-                            hope to thrive again if its cities don’t—they’re
-                            the places that have historically supplied the
-                            keys for unlocking human potential. Though beset
-                            by racism and other injustices, cities not only
-                            provided shared, robust public infrastructure
-                            like schools, libraries and transit systems,
-                            they stirred together vast numbers of people
-                            from different cultures and classes.
-                        </p>
-                        <p className="mt-5 text-base text-[#5C5955]">
-                            1 hour ago
-                        </p>
-                    </div>
-                    {/* <!-- thumb --> */}
-                    <div className="col-span-12 lg:col-span-8">
-                        <img className="w-full" src={thumbLg} alt="thumb" />
-                        <p className="mt-5 text-base text-[#5C5955]">
-                            Illustration: Karolis Strautniekas
-                        </p>
-                    </div>
-                </div>
+                {
+                    // Data.map((article, index) => (
+
+                    // <div className="col-span-12 grid grid-cols-12 gap-4">
+                    //     {/* <!-- info --> */}
+                    //     <div className="col-span-12 lg:col-span-4">
+                    //         <a href="#">
+                    //             <h3 className="mb-2.5 text-2xl font-bold lg:text-[28px]">
+                    //                 {articles[0].title ?? "Kishor"}
+                    //             </h3>
+                    //         </a>
+                    //         <p className="text-base text-[#5C5955]">
+                    //             {articles[0].description ?? "Kumar"}
+                    //         </p>
+                    //         <p className="mt-5 text-base text-[#5C5955]">
+                    //             {articles[0].publishedAt ?? "1 hour ago"}
+                    //         </p>
+                    //     </div>
+                    //     {/* <!-- thumb --> */}
+                    //     <div className="col-span-12 lg:col-span-8">
+                    //         <img className="w-full" src={thumbLg} alt="thumb" />
+                    //         <p className="mt-5 text-base text-[#5C5955]">
+                    //             {articles[0].content ?? "Paroi"}
+                    //         </p>
+                    //     </div>
+                    // </div>
+                    // ))
+                }
                 {/* <!-- news item ends --> */}
                 {/* <!-- news item --> */}
                 <div className="col-span-12 grid grid-cols-12 gap-4 lg:col-span-8">

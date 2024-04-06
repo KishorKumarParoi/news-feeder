@@ -1,6 +1,6 @@
 import thumb from '../../assets/thumb.png';
 
-export default function RightNewsPart() {
+export default function NewsPart() {
 
     return (
         <>
