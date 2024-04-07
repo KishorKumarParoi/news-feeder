@@ -1,20 +1,24 @@
 import { useContext } from 'react';
 import thumb from '../../assets/thumb.png';
-import { NewsContext } from '../../contexts';
+import { NewsContext, QueryContext } from '../../contexts';
 import convertDate from '../../utils/convertDate';
 
 export default function RightNewsPart() {
     const { newsData } = useContext(NewsContext);
     const { articles } = { ...newsData };
+    const { query } = useContext(QueryContext);
+
+    if (query.typeOfNews === 'search')
+        return null;
 
     return (
         <>
             <div className="col-span-12 self-start xl:col-span-4">
+
                 <div className="space-y-6 divide-y-2 divide-[#D5D1C9]">
-                    {/* <!-- news item --> */}
+
                     <div className="col-span-12 mb-6 md:col-span-8">
                         <img className="w-full" src={thumb} alt="thumb" />
-                        {/* <!-- info --> */}
                         <div className="col-span-12 mt-6 md:col-span-4">
                             <a href="#">
                                 <h3 className="mb-2.5 text-xl font-bold lg:text-[20px]">
@@ -29,8 +33,7 @@ export default function RightNewsPart() {
                             </p>
                         </div>
                     </div>
-                    {/* <!-- news item ends --> */}
-                    {/* <!-- news item --> */}
+
                     {
                         articles && articles.slice(2, 23).map((article, index) => (
                             <div className="col-span-12 md:col-span-8" key={index}>

@@ -2,7 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { QueryContext } from "../contexts";
 
 const useNewsQuery = () => {
-    const [newsData, setNewsData] = useState(null);
+    const { query, setQuery } = useContext(QueryContext);
+    const { typeOfNews, queryType, queryAbout } = { ...query };
+
+    const [newsData, setNewsData] = useState({
+        status: "",
+        totalResults: 0,
+        articles: [],
+        result: [],
+    });
 
     // loading state
     const [loading, setLoading] = useState({
@@ -25,9 +33,12 @@ const useNewsQuery = () => {
             // todo : fetch news data from API
             // http://localhost:8000/v2/top-headlines?category=health
             // http://localhost:8000/v2/search?q=health
+            let response;
 
-            const response = await fetch(`http://localhost:8000/v2/${typeOfNews}?${queryType}=${queryAbout}`);
-
+            if (typeOfNews && queryType && queryAbout) {
+                // console.log(`http://localhost:8000/v2/${typeOfNews}?${queryType}=${queryAbout}`);
+                response = await fetch(`http://localhost:8000/v2/${typeOfNews}?${queryType}=${queryAbout}`);
+            }
             if (!response.ok) {
                 const errorMessage = `Fetching Weather Data Failed: ${response.status}`;
                 throw new Error(errorMessage);
@@ -41,6 +52,7 @@ const useNewsQuery = () => {
             };
 
             setNewsData(updateNewsData);
+            console.log("newsData: ", newsData);
 
         } catch (error) {
             setError(error);
@@ -53,8 +65,7 @@ const useNewsQuery = () => {
         }
     };
 
-    const { query } = useContext(QueryContext);
-    const { typeOfNews, queryType, queryAbout } = query;
+
 
     // console.log("query", query);
     // console.log("typeOfNews", typeOfNews);
@@ -67,11 +78,21 @@ const useNewsQuery = () => {
             state: true,
             message: "Getting your News Data...",
         });
+
         featchNewsData(typeOfNews, queryType, queryAbout);
+
+        // return () => {
+        //     // console.log("cleanup for ", typeOfNews, queryType, queryAbout);
+        //     // cleanup
+        //     setQuery({
+        //         typeOfNews: "",
+        //         queryType: "",
+        //         queryAbout: "",
+        //     });
+        // }
     }, [typeOfNews, queryType, queryAbout]);
 
     return {
-        featchNewsData,
         newsData,
         loading,
         error,

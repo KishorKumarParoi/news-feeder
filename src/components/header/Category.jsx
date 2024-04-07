@@ -6,13 +6,14 @@ export default function Category() {
 
     function handleClick(e) {
         e.preventDefault();
-        console.log(e.target.innerText);
+        // console.log(e.target.innerText);
         setQuery({
             typeOfNews: "top-headlines",
             queryType: "category",
             queryAbout: e.target.innerText.toLowerCase(),
         });
     }
+
     return (
         <>
             <div className="container mx-auto mt-6">
