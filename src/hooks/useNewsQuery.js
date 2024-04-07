@@ -71,6 +71,7 @@ const useNewsQuery = () => {
     }, [typeOfNews, queryType, queryAbout]);
 
     return {
+        featchNewsData,
         newsData,
         loading,
         error,
