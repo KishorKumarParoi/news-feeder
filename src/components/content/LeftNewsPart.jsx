@@ -11,8 +11,8 @@ export default function LeftNewsPart() {
     const { query } = useContext(QueryContext);
 
     // console.log(articles);
-    console.log(result);
-    console.log(query);
+    // console.log(result);
+    // console.log(query);
 
     if (query.typeOfNews === 'search')
         return <NewsPart />;
