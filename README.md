@@ -1,4 +1,4 @@
-Live Preview : https://assignment-4-news-feeder-kishor-kumar-paroi.vercel.app/
+Live Preview : https://news-feeder-lyart.vercel.app/
 Features:
 
 - useDebounce Search facility
