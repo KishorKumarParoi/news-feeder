@@ -4,7 +4,7 @@ import { QueryContext } from '../../contexts';
 import useDebounce from '../../utils/useDebounce';
 
 export default function SearchLogo() {
-    const [showInputBar, setShowInputBar] = useState(true);
+    const [showInputBar, setShowInputBar] = useState(false);
     const { setQuery } = useContext(QueryContext);
 
     const handleSearch = (e) => {
