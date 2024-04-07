@@ -43,14 +43,14 @@ export default function LeftNewsPart() {
                     <div className="col-span-12 md:col-span-6">
                         <a href="">
                             <h3 className="mb-2.5 text-xl font-bold lg:text-2xl">
-                                {articles && articles[1]?.title}
+                                {articles && articles[2]?.title}
                             </h3>
                         </a>
                         <p className="text-base text-[#292219]">
-                            {articles && articles[1]?.description}
+                            {articles && articles[2]?.description}
                         </p>
                         <p className="mt-5 text-base text-[#5C5955]">
-                            {articles && convertDate(articles[1]?.publishedAt)}
+                            {articles && convertDate(articles[2]?.publishedAt)}
                         </p>
                     </div>
                     {/* <!-- thumb --> */}
@@ -63,7 +63,7 @@ export default function LeftNewsPart() {
                 {/* <!-- news item --> */}
                 {
                     articles && articles.map((article, index) => (
-                        (index > 1) && <div className="col-span-12 md:col-span-6 lg:col-span-4" key={index}>
+                        (index > 2) && <div className="col-span-12 md:col-span-6 lg:col-span-4" key={index}>
                             {/* <!-- info --> */}
                             <div className="col-span-12 md:col-span-4">
                                 <a href="#">
