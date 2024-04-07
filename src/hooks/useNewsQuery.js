@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { QueryContext } from "../contexts";
 
 const useNewsQuery = () => {
     const [newsData, setNewsData] = useState(null);
@@ -52,14 +53,22 @@ const useNewsQuery = () => {
         }
     };
 
+    const { query } = useContext(QueryContext);
+    const { typeOfNews, queryType, queryAbout } = query;
+
+    // console.log("query", query);
+    // console.log("typeOfNews", typeOfNews);
+    // console.log("queryType", queryType);
+    // console.log("queryAbout", queryAbout);
+
     useEffect(() => {
         setLoading({
             ...loading,
             state: true,
             message: "Getting your News Data...",
         });
-        featchNewsData("top-headlines", "category", "general");
-    }, []);
+        featchNewsData(typeOfNews, queryType, queryAbout);
+    }, [typeOfNews, queryType, queryAbout]);
 
     return {
         newsData,

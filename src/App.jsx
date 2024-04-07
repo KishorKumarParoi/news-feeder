@@ -1,10 +1,12 @@
 import Page from './components/Page'
-import { NewsProvider } from './providers'
+import { NewsProvider, QueryProvider } from './providers'
 
 export default function App() {
   return (
-    <NewsProvider>
-      <Page />
-    </NewsProvider>
+    <QueryProvider>
+      <NewsProvider>
+        <Page />
+      </NewsProvider>
+    </QueryProvider>
   )
 }

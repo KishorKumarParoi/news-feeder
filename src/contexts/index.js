@@ -1,2 +1,4 @@
 import NewsContext from './NewsContext';
-export { NewsContext };
+import QueryContext from './QueryContext';
+
+export { NewsContext, QueryContext };
